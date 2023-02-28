@@ -1,13 +1,14 @@
-# Temporal Shift for Speech Emotion Recognition
-Code for ICASSP 2023 paper "Mingling or Misalignment? Temporal Shift for Speech Emotion Recognition with Pre-trained Representations". [arXiv]
+# Temporal Shift for Speech Emotion Recognition [[arXiv]](https://arxiv.org/abs/2302.13277)
+Code for ICASSP 2023 paper "Mingling or Misalignment? Temporal Shift for Speech Emotion Recognition with Pre-trained Representations". 
 
 ![Shift](Shift.png)
 
 ## Libraries and Dependencies
  - [pytorch](https://github.com/pytorch/pytorch)
  - [torchaudio](https://github.com/pytorch/audio) (For pretrained wav2vec2 and HuBERT)
- - [timm](https://github.com/huggingface/pytorch-image-models) (For optimizer and scheduler)
  - [transformers](https://huggingface.co) (For Specaugment)
+ - [timm](https://github.com/huggingface/pytorch-image-models) (For optimizer and scheduler)
+ - [yacs](https://github.com/rbgirshick/yacs) (For config)
 
 ## Data Preparation
 
@@ -34,7 +35,7 @@ Key arguments for easy config modification in `main.py` are as follows,
   * `rnn`: 1 layer bidirectioanl LSTM.
   * `transformer`: 2-block Transformer with relative positional embedding by default.
 * `--shift`: whether to use temporal shift. The placement of shift are hard-coding as described in our paper: residual shift for CNN, replacement of MHSA for Transformer and in-place shift for lstm. We provide optional placement in annotation.
-* `--ndiv`: shift proportion, namely 1/ndiv of channels will be shifted while others reamain unchanged.
+* `--ndiv`: proportion of shift, namely 1/ndiv of channels will be shifted while others reamain unchanged.
 * `--stride`: the step to be shifted, kept as 1 by default.
 * `--bidirectional`: whether to use bidirectional temporal shift.
 * `--finetune`: whether to finetune the pretrained model or take the pretrained model as feature extractor. By default, we use wav2vec2 for feature extraction and HuBERT for feature extraction.
@@ -78,17 +79,5 @@ python main.py --model rnn --shift --ndiv 4
 python main.py --model rnn --shift --ndiv 4 --finetune
 ```
 
-The foramt of the fianl results of 5 fold in `\log` is expected to be
-
-```
-fold	WA	UA	
-1	0.6949	0.7218
-2	0.7429	0.7673
-3	0.6742	0.6747
-4	0.7177	0.7150
-5	0.6938	0.7045
-Avg_WA	Avg_UA
-0.7047170622838753	0.7166738092265372
-```
-
+The foramt of the fianl results of 5 fold is expected to be in `/log`.
 
