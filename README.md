@@ -79,5 +79,16 @@ python main.py --model rnn --shift --ndiv 4
 python main.py --model rnn --shift --ndiv 4 --finetune
 ```
 
-The foramt of the fianl results of 5 fold is expected to be in `/log`.
+The fianl results of 5 fold is expected to be in `/log`.
 
+## Citation
+```bibtex
+@inproceedings{shen2023mingling,
+  title={Mingling or misalignment? temporal shift for speech emotion recognition with pre-trained representations},
+  author={Shen, Siyuan and Liu, Feng and Zhou, Aimin},
+  booktitle={ICASSP 2023-2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  pages={1--5},
+  year={2023},
+  organization={IEEE}
+}
+```
