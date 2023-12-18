@@ -17,7 +17,7 @@ Download our preprocessed [wavfeature_7.5.tar.gz](https://drive.google.com/file/
 Or obtain [IEMOCAP](https://sail.usc.edu/iemocap/) from USC and run
 
 ```
-cd /dataset/IEMOCAP
+cd dataset/IEMOCAP
 python Preprocess.py --path $path to directory of IEMOCAP$
 cd ../..
 ```
@@ -38,7 +38,7 @@ Key arguments for easy config modification in `main.py` are as follows,
 * `--ndiv`: proportion of shift, namely 1/ndiv of channels will be shifted while others reamain unchanged.
 * `--stride`: the step to be shifted, kept as 1 by default.
 * `--bidirectional`: whether to use bidirectional temporal shift.
-* `--finetune`: whether to finetune the pretrained model or take the pretrained model as feature extractor. By default, we use wav2vec2 for feature extraction and HuBERT for feature extraction.
+* `--finetune`: whether to finetune the pretrained model or take the pretrained model as feature extractor. By default, we use wav2vec2 for finetuning and HuBERT for feature extraction.
 
 For CNN and ShiftCNN
 
